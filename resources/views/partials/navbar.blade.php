@@ -1,13 +1,13 @@
-<nav id="navbar" class="fixed top-0 w-full z-50 bg-white transition duration-300 ease-in-out">
-  <div class="max-w-[1440px] mx-auto flex items-center justify-between h-[46px] px-6">
+<nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent transition duration-300 ease-in-out">
+  <div class="max-w-[1440px] mx-auto flex items-center justify-between h-[70px] px-6">
     <img
       id="logo"
-      src="/images/logohitam.png"
+      src="/images/logoputih.png"
       alt="Logo Arcanum"
       class="h-[35px] transition duration-300"
     />
 
-    <div class="flex space-x-8 text-black text-[25px] font-normal font-bebas">
+    <div id="nav-links" class="flex space-x-8 text-[25px] font-normal font-bebas text-white transition duration-300">
       <a href="#" class="transition duration-300">HOME</a>
       <a href="#" class="transition duration-300">SHOP</a>
       <a href="#" class="transition duration-300">JOURNAL</a>
@@ -15,8 +15,8 @@
     </div>
 
     <div class="flex items-center space-x-4">
-      <img src="/images/profile.png" alt="Profile" class="h-[27px]" />
-      <img src="/images/keranjang.png" alt="Keranjang" class="h-[25px]" />
+      <img id="profile" src="/images/profile-putih.png" alt="Profile" class="h-[27px] transition duration-300" />
+      <img id="keranjang" src="/images/keranjang-putih.png" alt="Keranjang" class="h-[25px] transition duration-300" />
     </div>
   </div>
 </nav>

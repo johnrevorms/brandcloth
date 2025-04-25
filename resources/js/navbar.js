@@ -1,22 +1,36 @@
 window.addEventListener("scroll", () => {
     const navbar = document.getElementById("navbar");
     const logo = document.getElementById("logo");
+    const profile = document.getElementById("profile");
+    const keranjang = document.getElementById("keranjang");
+    const links = document.querySelectorAll("#navbar a");
 
     if (window.scrollY > 10) {
-      navbar.classList.remove("bg-white");
-      navbar.classList.add("bg-transparant");
-      navbar.classList.add("backdrop-blur-md");
+        // SCROLL: background putih + teks hitam
+        navbar.classList.add("bg-white");
+        navbar.classList.remove("bg-transparent", "backdrop-blur-md");
 
-      navbar.classList.replace("text-black", "text-white");
+        links.forEach((link) => {
+            link.classList.remove("text-white");
+            link.classList.add("text-black");
+        });
 
-      logo.src = "/images/logoputih.png";
+        logo.src = "/images/logohitam.png";
+        profile.src = "/images/profile.png";
+        keranjang.src = "/images/keranjang.png";
+
     } else {
-      navbar.classList.add("bg-white");
-      navbar.classList.remove("bg-transparent");
-      navbar.classList.remove("backdrop-blur-md");
+        // POSISI ATAS: transparan + teks putih
+        navbar.classList.remove("bg-white");
+        navbar.classList.add("bg-transparent", "backdrop-blur-md");
 
-      navbar.classList.replace("text-white", "text-black");
+        links.forEach((link) => {
+            link.classList.remove("text-black");
+            link.classList.add("text-white");
+        });
 
-      logo.src = "/images/logohitam.png";
+        logo.src = "/images/logoputih.png";
+        profile.src = "/images/profilputih.png";
+        keranjang.src = "/images/keranjangputih.png";
     }
-  });
+});
