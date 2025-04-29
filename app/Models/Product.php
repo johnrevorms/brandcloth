@@ -11,5 +11,5 @@ class Product extends Model
 
     protected $table = 'products';  // Pastikan nama tabel sesuai dengan yang ada di database
 
-    protected $fillable = ['name', 'description', 'price', 'stock'];
+    protected $fillable = ['name', 'description', 'price', 'stock', 'image'];
 }
