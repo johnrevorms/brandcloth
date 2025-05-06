@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
- <!-- Bagian Hero -->
+    <!-- Bagian Hero -->
     {{-- Gambar Utama --}}
     <section class="relative h-screen w-full overflow-hidden">
         <img src="/images/deskop.png" alt="Hero Image" class="absolute top-0 left-0 w-full h-full object-cover z-0" />
-
     </section>
 
     {{-- Tulisan Awareness --}}
@@ -17,9 +16,9 @@
     {{-- Beberapa Foto Produk --}}
     <section class="bg-white py-10 px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1200px] mx-auto">
-            <img src="/images/product1.png" alt="Product 1" class="w-full h-[300px] object-cover rounded-lg shadow" />
-            <img src="/images/product2.png" alt="Product 2" class="w-full h-[300px] object-cover rounded-lg shadow" />
-            <img src="/images/product3.png" alt="Product 3" class="w-full h-[300px] object-cover rounded-lg shadow" />
+            <img src="/images/model1.png" alt="Product 1" class="w-full h-[300px] object-cover rounded-lg shadow" />
+            <img src="/images/model2.png" alt="Product 2" class="w-full h-[300px] object-cover rounded-lg shadow" />
+            <img src="/images/model3.png" alt="Product 3" class="w-full h-[300px] object-cover rounded-lg shadow" />
         </div>
     </section>
 
@@ -37,44 +36,37 @@
             <p class="text-xl mt-4">Exclusive streetwear designs for the modern generation.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
-            <!-- Produk 1 -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <img src="/images/product1.png" alt="Product 1" class="w-full h-[300px] object-cover rounded-md" />
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Arc 044</h3>
-                    <p class="text-gray-600">Rp 98.000</p>
-                </div>
-            </div>
-
-            <!-- Produk 2 -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <img src="/images/product2.png" alt="Product 2" class="w-full h-[300px] object-cover rounded-md" />
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Arc 021</h3>
-                    <p class="text-gray-600">Rp 98.000</p>
-                </div>
-            </div>
-
-            <!-- Produk 3 -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <img src="/images/product3.png" alt="Product 3" class="w-full h-[300px] object-cover rounded-md" />
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Arc 055</h3>
-                    <p class="text-gray-600">Rp 120.000</p>
-                </div>
-            </div>
-
-            <!-- Produk 4 -->
-            <div class="bg-white p-4 rounded-lg shadow-md">
-                <img src="/images/product4.png" alt="Product 4" class="w-full h-[300px] object-cover rounded-md" />
-                <div class="mt-4">
-                    <h3 class="text-xl font-semibold">Arc 033</h3>
-                    <p class="text-gray-600">Rp 105.000</p>
-                </div>
-            </div>
+        <div id="shop-products" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
+            <!-- Produk akan dimasukkan secara dinamis di sini -->
         </div>
     </section>
 
-    <!-- Bagian Footer (Sudah ada sebelumnya) -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('/api/products')
+            .then(response => {
+                const products = response.data;
+                const container = document.getElementById('shop-products');
+
+                products.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white p-4 rounded-lg shadow-md';
+
+                    card.innerHTML = `
+                        <img src="${product.image ? '/storage/' + product.image : '/images/product-placeholder.png'}"
+                            alt="${product.name}"
+                            class="w-full h-[400x] object-cover rounded-md" />
+                        <div class="mt-2">
+                            <h3 class="text-xl font-semibold">${product.name}</h3>
+                            <p class="text-gray-600">Rp ${product.price.toLocaleString('id-ID')}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Gagal mengambil produk:', error);
+            });
+    </script>
+
 @endsection
