@@ -16,10 +16,10 @@
     <img class="absolute w-6 h-6 top-[216px] left-[183px] object-cover" alt="Instagram" src="/images/instagram.png">
 
     <!-- Links -->
-    <div class="absolute top-[78px] left-[1247px] font-bold text-white text-sm">Refund Policy</div>
-    <div class="absolute top-[112px] left-[1251px] font-bold text-white text-sm">How to order</div>
-    <div class="absolute top-[146px] left-[1313px] font-bold text-white text-sm">FAQ</div>
-    <div class="absolute top-[181px] left-[1186px] font-bold text-white text-sm">Payment Confirmation</div>
+    <a href="/refund-policy" class="absolute top-[78px] left-[1247px] font-bold text-white text-sm hover:underline">Refund Policy</a>
+    <a href="/how-to-order" class="absolute top-[112px] left-[1251px] font-bold text-white text-sm hover:underline">How to order</a>
+    <a href="/faq" class="absolute top-[146px] left-[1313px] font-bold text-white text-sm hover:underline">FAQ</a>
+    <a href="/payment-confirmation" class="absolute top-[181px] left-[1186px] font-bold text-white text-sm hover:underline">Payment Confirmation</a>
 
     <!-- Copyright -->
     <p class="absolute top-[216px] left-[1080px] font-bold text-white text-sm">
