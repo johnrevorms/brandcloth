@@ -17,3 +17,8 @@ Route::get('/journal', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::view('/refund-policy', 'refund');
+Route::view('/how-to-order', 'howtoorder');
+Route::view('/faq', 'faq');
+Route::view('/payment-confirmation', 'payment-confirmation');
