@@ -9,7 +9,7 @@
 
     <div id="nav-links" class="flex space-x-8 text-[25px] font-normal font-bebas text-white transition duration-300">
       <a href="#" class="transition duration-300">HOME</a>
-      <a href="#" class="transition duration-300">SHOP</a>
+      <a href="/shop" class="transition duration-300 hover:text-gray-400">SHOP</a>
       <a href="/journal" class="transition duration-300 hover:text-gray-400">JOURNAL</a>
       <a href="/about" class="transition duration-300 hover:text-gray-400">ABOUT</a>
     </div>
@@ -18,7 +18,9 @@
       <a href="/profile">
         <img id="profile" src="/images/profile-putih.png" alt="Profile" class="h-[27px] transition duration-300" />
       </a>
-      <img id="keranjang" src="/images/keranjang-putih.png" alt="Keranjang" class="h-[25px] transition duration-300" />
+<a href="/cart">
+        <img id="keranjang" src="/images/keranjang-putih.png" alt="Keranjang" class="h-[25px] transition duration-300" />
+      </a>
     </div>
   </div>
 </nav>
