@@ -23,50 +23,50 @@
     </section>
 
     {{-- Tombol Shop --}}
-    <section class="text-center py-10">
-        <a href="#shop" class="inline-block bg-black text-white py-3 px-8 rounded-full text-lg hover:bg-gray-800 transition">
-            Shop Now
-        </a>
-    </section>
+<section class="bg-gray-100 py-20" id="shop">
+    <div class="max-w-[1440px] mx-auto text-center mb-12">
+        <h2 class="text-4xl font-bold">Shop Our Collection</h2>
+        <p class="text-xl mt-4">Exclusive streetwear designs for the modern generation.</p>
+    </div>
 
-    <!-- Bagian Shop dan Produk -->
-    <section class="bg-gray-100 py-20" id="shop">
-        <div class="max-w-[1440px] mx-auto text-center mb-12">
-            <h2 class="text-4xl font-bold">Shop Our Collection</h2>
-            <p class="text-xl mt-4">Exclusive streetwear designs for the modern generation.</p>
-        </div>
+    <div id="shop-products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
+        <!-- Produk akan dimasukkan secara dinamis di sini -->
+    </div>
+</section>
 
-        <div id="shop-products" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6">
-            <!-- Produk akan dimasukkan secara dinamis di sini -->
-        </div>
-    </section>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    axios.get('/api/products')
+        .then(response => {
+            const products = response.data;
+            const container = document.getElementById('shop-products');
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-        axios.get('/api/products')
-            .then(response => {
-                const products = response.data;
-                const container = document.getElementById('shop-products');
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md flex flex-col';
 
-                products.forEach(product => {
-                    const card = document.createElement('div');
-                    card.className = 'bg-white p-4 rounded-lg shadow-md';
-
-                    card.innerHTML = `
+                card.innerHTML = `
+                    <div class="w-full h-[400px] flex items-center justify-center bg-white overflow-hidden">
                         <img src="${product.image ? '/storage/' + product.image : '/images/product-placeholder.png'}"
                             alt="${product.name}"
-                            class="w-full h-[400x] object-cover rounded-md" />
-                        <div class="mt-2">
-                            <h3 class="text-xl font-semibold">${product.name}</h3>
+                            class="max-h-full max-w-full object-contain" />
+                    </div>
+                    <div class="p-4 text-left flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-1">${product.name}</h3>
                             <p class="text-gray-600">Rp ${product.price.toLocaleString('id-ID')}</p>
                         </div>
-                    `;
-                    container.appendChild(card);
-                });
-            })
-            .catch(error => {
-                console.error('Gagal mengambil produk:', error);
+                    </div>
+                `;
+                container.appendChild(card);
             });
-    </script>
+        })
+        .catch(error => {
+            console.error('Gagal mengambil produk:', error);
+        });
+</script>
+
+
+
 
 @endsection

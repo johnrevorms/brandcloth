@@ -6,3 +6,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shop', function () {
+    return view('shop');  // Halaman shop utama
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+});
+
+Route::get('/journal', function () {
+    return view('journal');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
+Route::view('/refund-policy', 'refund');
+Route::view('/how-to-order', 'howtoorder');
+Route::view('/faq', 'faq');
+Route::view('/payment-confirmation', 'payment-confirmation');
