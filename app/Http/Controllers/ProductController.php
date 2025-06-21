@@ -24,10 +24,9 @@ class ProductController extends Controller
 
         $product = Product::create($validated);
 
-        // Proses upload gambar (jika ada)
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public'); // Ini akan menyimpan gambar ke storage/app/public/products
-            $product->image = $imagePath; // Menyimpan path gambar di database
+            $imagePath = $request->file('image')->store('products', 'public');
+            $product->image = $imagePath;
         }
 
         $product->save();
@@ -47,10 +46,8 @@ class ProductController extends Controller
             'image' => 'nullable|image|max:2048',
         ]);
 
-        // Update field biasa
         $product->fill($request->only(['name', 'description', 'price', 'stock']));
 
-        // Jika ada gambar baru di-upload
         if ($request->hasFile('image')) {
             if ($product->image && file_exists(storage_path('app/public/' . $product->image))) {
                 unlink(storage_path('app/public/' . $product->image));
@@ -72,7 +69,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        // Hapus gambar jika ada
         if ($product->image && file_exists(storage_path('app/public/' . $product->image))) {
             unlink(storage_path('app/public/' . $product->image));
         }

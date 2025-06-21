@@ -9,7 +9,6 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $table = 'products';  // Pastikan nama tabel sesuai dengan yang ada di database
-
+    protected $table = 'products';
     protected $fillable = ['name', 'description', 'price', 'stock', 'image'];
 }
