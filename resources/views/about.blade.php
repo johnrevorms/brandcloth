@@ -1,8 +1,5 @@
-
 @extends('layouts.app')
-
 @section('title', 'About')
-
 @section('content')
 <div class="bg-black flex flex-row justify-center w-full">
   <div class="bg-black w-[1440px] h-[1003px]">
@@ -17,7 +14,7 @@
         alt="Logo ARCANUM"
         src="/images/logofooter.png"
       />
-      <p class="absolute w-[733px] top-[250px] left-[686px] font-sans text-white leading-relaxed text-sm">
+        <p class="absolute w-[733px] top-[250px] left-[686px] font-sans text-white leading-relaxed text-sm">
         Arcanum is a brand that embodies the essence of mystery, innovation,
         and style. With a passion for creating high-quality products that
         reflect individuality and sophistication, Arcanum stands at the
@@ -32,14 +29,21 @@
         aligns with modern aesthetics while maintaining timeless appeal.
         <br /><br />
         At Arcanum, we believe that fashion is more than just what you
-        wearΓÇöit&#39;s about expressing who you are and what you stand for.
-        Our products are not just about looking good; they&#39;re about
+        wear—it's about expressing who you are and what you stand for.
+        Our products are not just about looking good; they're about
         feeling empowered, confident, and ready to take on the world with a
         sense of purpose.
         <br /><br />
+        Now, we’re stepping into motion—introducing Arcanum Sport, a collection
+        where performance and aesthetic merge into a lifestyle of bold movement.
+        Designed for those who live with purpose and play with intensity, our
+        sporty wear blends breathable fabrics, dynamic silhouettes, and our signature
+        flair. Whether you're chasing goals on the court, finding balance on the mat,
+        or owning your look on the street, Arcanum Sport is your canvas of confidence.
+        <br /><br />
         Join us on our journey to redefine fashion and self-expression.
-        Welcome to Arcanum, where mystery meets style.
-      </p>
+        Welcome to Arcanum, where mystery meets style—and now, motion.
+        </p>
     </div>
   </div>
 </div>
