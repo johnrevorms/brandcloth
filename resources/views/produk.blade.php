@@ -95,11 +95,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     axios.post(`${backendUrl}/api/orders/`, orderData, {
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
     })
-    .then(() => {
-      alert('Order berhasil dibuat!');
-      window.location.href = '/payment-confirmation';
+    .then((res) => {
+    const orderId = res.data.id;
+    alert('Order berhasil dibuat!');
+    window.location.href = `/shipping-confirmation?order_id=${orderId}`;
     })
     .catch(error => {
       console.error('Gagal membuat order:', error.response?.data || error);

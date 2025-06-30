@@ -78,15 +78,17 @@ function deleteItem(itemId) {
 }
 
 document.getElementById('checkout-btn').addEventListener('click', function () {
-  axios.post(`${backendUrl}/api/cart/checkout/`, {}, {
+    axios.post(`${backendUrl}/api/cart/checkout/`, {}, {
     headers: {
-      Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`
     }
-  })
-  .then(res => {
+    })
+    .then(res => {
+    const orderId = res.data.order_id;
     alert(res.data.message);
-    loadCart();
-  })
+    window.location.href = `/shipping-confirmation?order_id=${orderId}`;
+    })
+
   .catch(err => {
     console.error('Checkout gagal:', err.response?.data || err);
     alert('Checkout gagal. Coba lagi.');
