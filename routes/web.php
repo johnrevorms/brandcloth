@@ -23,3 +23,7 @@ Route::view('/payment', 'payment')->name('payment');
 Route::view('/payment-confirmation', 'payment-confirmation')->name('payment.confirmation');
 Route::view('/shipping-confirmation', 'shipping-confirmation')->name('shipping.confirmation');
 Route::view('/status-payment', 'status-payment')->name('payment.status');
+
+Route::get('/laporan', function () {
+    return view('laporan'); // Asumsikan kamu pakai file resources/views/laporan.blade.php
+});

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Profile')
 @section('content')
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
+
 <div class="w-full max-w-lg mx-auto mt-10 p-6 bg-black text-white rounded">
   <h2 class="text-3xl font-semibold mb-4">Your Profile</h2>
   <div id="profile-info">Loading...</div>
@@ -25,59 +30,74 @@ if (!token) {
   axios.get(`${backendUrl}/api/user/`, {
     headers: { Authorization: `Bearer ${token}` }
   })
-    .then(res => {
+  .then(res => {
     const user = res.data;
-    let ordersHtml = '<h3 class="text-xl mt-4 mb-2">Pesanan Anda</h3>';
+    let ordersHtml = '';
 
-    if (user.orders.length === 0) {
+    // Hanya tampilkan daftar pesanan kalau bukan admin
+    if (!user.is_staff) {
+      ordersHtml += '<h3 class="text-xl mt-4 mb-2">Pesanan Anda</h3>';
+
+      if (user.orders.length === 0) {
         ordersHtml += '<p>Belum ada pesanan</p>';
-    } else {
+      } else {
         user.orders.forEach(order => {
-        // Tentukan warna badge berdasarkan status
-        let statusText = '';
-        switch (order.status) {
+          let statusText = '';
+          switch (order.status) {
             case 'payment_done':
-            statusText = '<span class="bg-green-100 text-green-700 px-2 py-1 text-sm rounded">Verifikasi Pembayaran</span>';
-            break;
+              statusText = '<span class="bg-green-100 text-green-700 px-2 py-1 text-sm rounded">PEMBAYARAN BERHASIL</span>';
+              break;
             case 'pending':
-            statusText = '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 text-sm rounded">Menunggu Pembayaran</span>';
-            break;
+              statusText = '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 text-sm rounded">Menunggu Pembayaran</span>';
+              break;
             case 'waiting_verification':
-            statusText = '<span class="bg-orange-100 text-orange-700 px-2 py-1 text-sm rounded">Menunggu Verifikasi</span>';
-            break;
+              statusText = '<span class="bg-orange-100 text-orange-700 px-2 py-1 text-sm rounded">Menunggu Verifikasi</span>';
+              break;
             case 'shipped':
-            statusText = '<span class="bg-blue-100 text-blue-700 px-2 py-1 text-sm rounded">Sudah Dikirim</span>';
-            break;
+              statusText = '<span class="bg-blue-100 text-blue-700 px-2 py-1 text-sm rounded">Sudah Dikirim</span>';
+              break;
             default:
-            statusText = `<span class="bg-gray-100 text-gray-700 px-2 py-1 text-sm rounded">${order.status}</span>`;
-        }
+              statusText = `<span class="bg-gray-100 text-gray-700 px-2 py-1 text-sm rounded">${order.status}</span>`;
+          }
 
-        // Tracking
-        const trackingInfo = order.tracking_number
+          const trackingInfo = order.tracking_number
             ? `<span class="bg-blue-100 text-blue-800 px-2 py-1 text-sm rounded">${order.tracking_number}</span>`
             : '<span class="bg-red-100 text-red-700 px-2 py-1 text-sm rounded">Belum dikirim</span>';
 
-        ordersHtml += `
+          ordersHtml += `
             <div class="border p-4 mb-4 rounded shadow bg-white text-black">
-            <p><strong>Order ID:</strong> ${order.id}</p>
-            <p><strong>Status:</strong> ${statusText}</p>
-            <p><strong>Tanggal:</strong> ${order.created_at}</p>
-            <p><strong>Tracking:</strong> ${trackingInfo}</p>
-            <ul class="ml-4 mt-2">` +
-            order.items.map(item => `
+              <p><strong>Order ID:</strong> ${order.id}</p>
+              <p><strong>Status:</strong> ${statusText}</p>
+              <p><strong>Tanggal:</strong> ${order.created_at}</p>
+              <p><strong>Tracking:</strong> ${trackingInfo}</p>
+              <ul class="ml-4 mt-2">` +
+              order.items.map(item => `
                 <li>${item.product_name} - ${item.quantity} pcs @ Rp ${parseInt(item.price).toLocaleString('id-ID')}</li>
-            `).join('') +
+              `).join('') +
             `</ul>
             </div>`;
         });
-  }
-
+      }
+    }
 
     document.getElementById('profile-info').innerHTML = `
       <p>Username: ${user.username}</p>
       <p>Email: ${user.email}</p>
       ${ordersHtml}
     `;
+
+    if (user.is_staff) {
+      const laporanBtn = document.createElement('a');
+      laporanBtn.href = '/laporan';
+      laporanBtn.className = 'bg-indigo-600 text-white px-4 py-2 rounded mt-4 block text-center';
+      laporanBtn.innerText = 'Lihat Laporan Penjualan';
+      document.getElementById('profile-info').appendChild(laporanBtn);
+
+      const adminNote = document.createElement('p');
+      adminNote.className = 'mt-2 text-sm text-gray-300 text-center';
+      adminNote.innerText = 'Anda login sebagai admin.';
+      document.getElementById('profile-info').appendChild(adminNote);
+    }
 
     document.getElementById('logout-container').style.display = 'block';
   })
@@ -93,4 +113,9 @@ document.getElementById('logout-btn').addEventListener('click', () => {
   window.location.reload();
 });
 </script>
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
+
 @endsection

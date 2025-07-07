@@ -1,12 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
+
 <div class="max-w-sm mx-auto mt-10 bg-black p-6 rounded text-white">
   <h2 class="text-2xl mb-4">Login</h2>
 
   <!-- Tidak pakai form agar tidak auto submit GET -->
-  <input id="username" type="text" class="w-full mb-2 p-2 text-black" placeholder="Username">
-  <input id="password" type="password" class="w-full mb-2 p-2 text-black" placeholder="Password">
+  <input id="username" type="text" class="w-full mb-2 p-2" placeholder="Username">
+  <input id="password" type="password" class="w-full mb-2 p-2" placeholder="Password">
 
   <button id="login-btn" type="button" class="bg-white text-black px-4 py-2 rounded">Login</button>
 
@@ -55,4 +60,8 @@ document.getElementById('login-btn').addEventListener('click', () => {
   });
 });
 </script>
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
 @endsection

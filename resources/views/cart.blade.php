@@ -2,6 +2,10 @@
 @section('title', 'Cart')
 @section('content')
 
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
+
 <div class="w-full max-w-4xl mx-auto mt-10 px-4">
   <div class="bg-black rounded-lg p-6 text-white shadow-md">
     <h2 class="text-3xl font-semibold mb-6">Items in Your Cart</h2>
@@ -101,5 +105,9 @@ if (!token) {
   loadCart();
 }
 </script>
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
 
 @endsection

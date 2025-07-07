@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Register')
 @section('content')
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
+
 <div class="max-w-sm mx-auto mt-10 bg-black p-6 rounded text-white">
   <h2 class="text-2xl mb-4">Register</h2>
   <input id="username" type="text" class="w-full mb-2 p-2" placeholder="Username">
@@ -26,4 +31,9 @@ document.getElementById('register-btn').addEventListener('click', () => {
   });
 });
 </script>
+
+<section class="bg-white py-5">
+  <div class="max-w-7xl mx-auto px-6">
+</section>
+
 @endsection

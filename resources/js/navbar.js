@@ -19,6 +19,8 @@ window.addEventListener("scroll", () => {
         profile.src = "/images/profile.png";
         keranjang.src = "/images/keranjang.png";
 
+
+
     } else {
         // POSISI ATAS: transparan + teks putih
         navbar.classList.remove("bg-white");
