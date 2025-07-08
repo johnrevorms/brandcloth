@@ -27,3 +27,11 @@ Route::view('/status-payment', 'status-payment')->name('payment.status');
 Route::get('/laporan', function () {
     return view('laporan'); // Asumsikan kamu pakai file resources/views/laporan.blade.php
 });
+
+Route::get('/verifikasi', function () {
+    return view('verifikasi'); // Asumsikan kamu pakai file resources/views/laporan.blade.php
+});
+
+Route::get('/konfirmasi', function () {
+    return view('konfirmasi'); // Asumsikan kamu pakai file resources/views/laporan.blade.php
+});

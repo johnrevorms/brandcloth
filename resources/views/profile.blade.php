@@ -93,10 +93,18 @@ if (!token) {
       laporanBtn.innerText = 'Lihat Laporan Penjualan';
       document.getElementById('profile-info').appendChild(laporanBtn);
 
+      const verifikasiBtn = document.createElement('a');
+      verifikasiBtn.href = '/verifikasi';
+      verifikasiBtn.className = 'bg-yellow-600 text-white px-4 py-2 rounded mt-2 block text-center';
+      verifikasiBtn.innerText = 'Verifikasi Pembayaran';
+      document.getElementById('profile-info').appendChild(verifikasiBtn);
+
       const adminNote = document.createElement('p');
       adminNote.className = 'mt-2 text-sm text-gray-300 text-center';
       adminNote.innerText = 'Anda login sebagai admin.';
       document.getElementById('profile-info').appendChild(adminNote);
+
+
     }
 
     document.getElementById('logout-container').style.display = 'block';
