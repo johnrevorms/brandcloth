@@ -94,10 +94,24 @@ if (!token) {
       document.getElementById('profile-info').appendChild(laporanBtn);
 
       const verifikasiBtn = document.createElement('a');
-      verifikasiBtn.href = '/verifikasi';
+      verifikasiBtn.href = '/paymentproof';
       verifikasiBtn.className = 'bg-yellow-600 text-white px-4 py-2 rounded mt-2 block text-center';
       verifikasiBtn.innerText = 'Verifikasi Pembayaran';
       document.getElementById('profile-info').appendChild(verifikasiBtn);
+
+      const editprodukBtn = document.createElement('a');
+      editprodukBtn.href = '/editproduk';
+      editprodukBtn.className = 'bg-red-600 text-white px-4 py-2 rounded mt-2 block text-center';
+      editprodukBtn.innerText = 'EDIT PRODUK';
+
+      document.getElementById('profile-info').appendChild(editprodukBtn);
+
+      const tambahJournalBtn = document.createElement('a');
+      tambahJournalBtn.href = '/tambah-journal';
+      tambahJournalBtn.className = 'bg-purple-600 text-white px-4 py-2 rounded mt-2 block text-center w-full';
+      tambahJournalBtn.innerText = 'Tambah Journal';
+      document.getElementById('profile-info').appendChild(tambahJournalBtn);
+
 
       const adminNote = document.createElement('p');
       adminNote.className = 'mt-2 text-sm text-gray-300 text-center';

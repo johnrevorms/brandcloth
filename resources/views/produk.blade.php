@@ -12,7 +12,6 @@
       <span id="product-price">Rp -</span>
     </div>
     <div class="absolute left-[680px] top-[240px] text-black text-[40px]" style="font-family: 'Bebas Neue', Helvetica;">
-      DESKRIPSI PRODUK
     </div>
     <div class="absolute left-[680px] top-72 max-w-[610px] text-black text-base" style="font-family: 'Be Vietnam', Helvetica;">
       <span id="product-desc">Loading...</span>
