@@ -9,9 +9,15 @@
       FIND US
     </div>
 
-    <!-- Sosmed Icon -->
-    <img class="absolute w-[22px] h-[25px] top-[214px] left-[87px] object-cover" alt="Shoppe" src="/images/shoppe.png">
-    <img class="absolute w-[21px] h-[25px] top-[215px] left-[136px] object-cover" alt="TikTok" src="/images/tiktok.png">
+     <!-- Sosmed Icon -->
+     <a href="https://shopee.co.id/arcanum.store" target="_blank" rel="noopener noreferrer">
+  <img class="absolute w-[22px] h-[25px] top-[214px] left-[87px] object-cover" alt="Shopee" src="/images/shoppe.png">
+</a>
+
+<a href="https://www.tiktok.com/@arcanum.co?_t=ZS-8xzLVomQd17&_r=1" target="_blank" rel="noopener noreferrer">
+  <img class="absolute w-[21px] h-[25px] top-[215px] left-[136px] object-cover" alt="TikTok" src="/images/tiktok.png">
+</a>
+
     <img class="absolute w-6 h-6 top-[217px] left-[233px] object-cover" alt="WhatsApp" src="/images/wa.png">
     <img class="absolute w-6 h-6 top-[216px] left-[183px] object-cover" alt="Instagram" src="/images/instagram.png">
 
