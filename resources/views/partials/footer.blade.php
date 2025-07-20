@@ -18,8 +18,13 @@
   <img class="absolute w-[21px] h-[25px] top-[215px] left-[136px] object-cover" alt="TikTok" src="/images/tiktok.png">
 </a>
 
-    <img class="absolute w-6 h-6 top-[217px] left-[233px] object-cover" alt="WhatsApp" src="/images/wa.png">
-    <img class="absolute w-6 h-6 top-[216px] left-[183px] object-cover" alt="Instagram" src="/images/instagram.png">
+    <a href="https://www.instagram.com/arcanum.cloth?igsh=cmtqZzF6czlicHRk&utm_source=qr" target="_blank" rel="noopener noreferrer">
+  <img class="absolute w-6 h-6 top-[216px] left-[183px] object-cover" alt="Instagram" src="/images/instagram.png">
+</a>
+
+<a href="https://wa.me/6282391513787 " target="_blank" rel="noopener noreferrer">
+  <img class="absolute w-6 h-6 top-[217px] left-[233px] object-cover" alt="WhatsApp" src="/images/wa.png">
+</a>
 
     <!-- Links -->
     <div class="absolute top-[78px] left-[1247px] font-bold text-white text-sm">Refund Policy</div>
