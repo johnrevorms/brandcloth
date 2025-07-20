@@ -27,15 +27,18 @@
 </a>
 
     <!-- Links -->
-    <div class="absolute top-[78px] left-[1247px] font-bold text-white text-sm">Refund Policy</div>
-    <div class="absolute top-[112px] left-[1251px] font-bold text-white text-sm">How to order</div>
-    <div class="absolute top-[146px] left-[1313px] font-bold text-white text-sm">FAQ</div>
-    <div class="absolute top-[181px] left-[1186px] font-bold text-white text-sm">Payment Confirmation</div>
+   <!-- Link dan Copyright: Flex Column, Rata Kanan -->
+<div class="absolute top-[78px] right-[80px] flex flex-col items-end space-y-2 text-sm font-bold text-white">
+  <a href="/refund-policy" class="hover:underline">Refund Policy</a>
+  <a href="/how-to-order" class="hover:underline">How to Order</a>
+  <a href="/faq" class="hover:underline">FAQ</a>
+  <a href="/payment-information" class="hover:underline">Payment Confirmation</a>
 
-    <!-- Copyright -->
-    <p class="absolute top-[216px] left-[1080px] font-bold text-white text-sm">
-      © 2025 Arcanum. All Rights Reserved.
-    </p>
+  <div class="mt-2 border-t border-white/20 pt-2">
+    © 2025 Arcanum. All Rights Reserved.
+  </div>
+</div>
+
 
     <!-- Replacing SVG Lines with Tailwind Divs -->
     <div class="absolute w-[441px] h-px bg-white opacity-20 top-[208px] left-[903px]"></div>
